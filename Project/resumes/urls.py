@@ -4,11 +4,11 @@ from . import views
 
 urlpatterns = [
     # Student
-    path("student/resume/", views.studentResume, name="student-resume"),
-    path("student/edit/", views.studentEdit, name="student-edit"),
-    path("create/resume/", views.createResume, name="create-resume"),
+    path("", views.IndexView.as_view(), name="index"),
+    path("aluno/aditar/", views.StudentEditView.as_view(), name="student-edit"),
+    path("criar/cirriculo/", views.CreateResumeView.as_view(), name="create-resume"),
 
     # Admin
-    path("dashboard/", views.dashboard, name="dashboard"),
-    path("manage/edit/", views.manageEdit, name="manage-edit"),
+    path("dashboard/", views.DashboardView.as_view(), name="dashboard"),
+    path("admistrador/editar/", views.AdminEditView.as_view(), name="admin-edit"),
 ]

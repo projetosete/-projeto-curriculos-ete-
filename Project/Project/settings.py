@@ -32,14 +32,22 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    # 3rd party
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    # local apps
     'students.apps.StudentsConfig',
     'resumes.apps.ResumesConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -108,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'America/Sao_Paulo'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -124,11 +132,48 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
 
+# Image settings
+
 MEDIA_URL = "/uploads/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
+
+# Authentication settings
+
+LOGIN_REDIRECT_URL = '/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# User Model
+
+AUTH_USER_MODEL = 'users.User'
+
+
+
+# Django-allauth
+
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+]
+
+SITE_ID = 1
+
+# remover lembar do usuário
+ACCOUNT_SESSION_REMEMBER = False
+# comfirmar email no terminal
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# pedir duas senhas no cadastro
+# ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+# não é necessário username
+# ACCOUNT_USERNAME_REQUIRED = False
+# método de autenticação
+# ACCOUNT_AUTHENTICATION_METHOD = "email"
+# ACCOUNT_EMAIL_REQUIRED = True
+# email único
+# ACCOUNT_UNIQUE_EMAIL = True

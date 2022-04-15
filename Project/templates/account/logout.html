@@ -1,0 +1,26 @@
+{% extends 'layouts/user-model.html' %}
+
+{% load static %}
+
+{% block title %}Sair{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-center">
+                    <h3 class="mt-5 mb-5">Sair</h3>
+                    <p>Você tem certeza que deseja sair?</p>
+
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <button type="submit" class="btn btn-danger btn-block">Sair</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,7 @@
+/* 991 */
+/* NAVBAR */
+@media screen and (max-width: 991.20px) {
+    .navbar .dropdown-button-user {
+        margin-bottom: 10px;
+    }
+}

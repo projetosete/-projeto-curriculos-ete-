@@ -1,26 +1,33 @@
+from re import template
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.views.generic import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
 # função para mostrar currículo
-def studentResume(request):
-    return render(request, "students/student-resume.html")
+
+
+class IndexView(LoginRequiredMixin, TemplateView):
+    template_name = "students/student-resume.html"
+
 
 # função para editar currículo de aluno
-def studentEdit(request):
-    return render(request, "students/student-edit.html")
+class StudentEditView(LoginRequiredMixin, TemplateView):
+    template_name = "students/student-edit.html"
+
 
 # função para criar currículo de aluno
-def createResume(request):
-    return render(request, "students/create-resume.html")
+class CreateResumeView(LoginRequiredMixin, TemplateView):
+    template_name = "students/create-resume.html"
+
 
 # função mostrar dashboard do admin
-def dashboard(request):
-    return render(request, "manager/dashboard.html")
+class DashboardView(LoginRequiredMixin, TemplateView):
+    template_name = "admin/dashboard.html"
+
 
 # função para o admin editar currículo
-def manageEdit(request):
-    return render(request, "manager/manage-edit.html")
-
-
-
+class AdminEditView(LoginRequiredMixin, TemplateView):
+    template_name = "admin/manage-edit.html"

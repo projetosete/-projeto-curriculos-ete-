@@ -1,0 +1,53 @@
+/* General */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*  Cores da ETE  */
+.bg-ete {
+    background-color: #000;
+}
+
+.text-ete {
+    color: white;
+}
+
+
+/*  Tamanhos diferentes para fontes */
+.font-90 {
+    font-size: 90%;
+}
+
+
+/* Personalização da Barra de menu  */
+.navbar {
+    padding: 0 !important;
+}
+
+.navbar a.nav-link {
+    color: #ffffff !important;
+}
+
+.navbar .navbar-brand {
+    margin-left: 10px;
+}
+
+.navbar .dropdown-button-user {
+    margin-right: 60px;
+}
+
+.navbar .nav-item {
+    padding: 1px 6px;
+}
+
+.navbar .nav-item:hover {
+    background-color: #3030b3;
+}
+
+
+
+/* Largura máxima das tabelas para não ficar mal formatada */
+table td {
+    max-width: 500px;
+}
