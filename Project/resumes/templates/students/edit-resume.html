@@ -1,0 +1,59 @@
+{% extends 'layouts/user-model.html' %}
+
+{% load static %}
+
+{% block title %}Editar currículo{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="text-center mt-3 mb-3">Editar currículo</h3>
+
+                <form method="POST" class="needs-validation" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+
+                    <div class="form-group mb-3">
+                        <label for="image" class="form-label">Foto</label>
+                        <input type="file" name="image" id="image" class="form-control-file">
+                        <img src="/uploads/{{ resume.image }}" alt="{{ resume.name }}" width="200px">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="name" class="form-label">Nome</label>
+                        <input type="text" class="form-control" name="name" id="name" value="{{ resume.name }}">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="birth_date" class="form-label">Data de nascimento</label>
+                        <input type="datetime" class="form-control" name="birth_date" id="birth_date"
+                            value="{{ resume.birth_date|date:'d/m/Y' }}">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="phone_number" class="form-label">Número celular</label>
+                        <input type="tel" class="form-control" name="phone_number" id="phone_number"
+                            value="{{ resume.phone_number }}">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="city" class="form-label">Cidade</label>
+                        <input type="text" class="form-control" name="city" id="city" value="{{ resume.city }}">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="course" class="form-label">Curso</label>
+                        <input type="text" class="form-control" name="course" id="course" value="{{ resume.course }}">
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-block">Editar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

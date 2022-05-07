@@ -44,10 +44,11 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "crispy_forms",
     # local apps
-    'students.apps.StudentsConfig',
-    'resumes.apps.ResumesConfig',
-    'users.apps.UsersConfig',
+    "users.apps.UsersConfig",
+    "resumes.apps.ResumesConfig",
+    "students.apps.StudentsConfig",
 ]
 
 MIDDLEWARE = [
@@ -128,19 +129,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
-# Image settings
-
-MEDIA_URL = "/uploads/"
-
-MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
-
-# Authentication settings
-
-LOGIN_REDIRECT_URL = '/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -148,11 +138,16 @@ LOGIN_REDIRECT_URL = '/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-
 # User Model
 
 AUTH_USER_MODEL = 'users.User'
 
+
+# image upload
+
+MEDIA_URL = "/uploads/"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 
 
 # Django-allauth
@@ -163,13 +158,14 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
+LOGIN_REDIRECT_URL = "/"
 
 # remover lembar do usuário
 ACCOUNT_SESSION_REMEMBER = False
 # comfirmar email no terminal
 # EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # pedir duas senhas no cadastro
-# ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 # não é necessário username
 # ACCOUNT_USERNAME_REQUIRED = False
 # método de autenticação
@@ -177,3 +173,8 @@ ACCOUNT_SESSION_REMEMBER = False
 # ACCOUNT_EMAIL_REQUIRED = True
 # email único
 # ACCOUNT_UNIQUE_EMAIL = True
+
+
+# django-crisy-forms
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"

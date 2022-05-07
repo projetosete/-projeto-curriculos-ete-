@@ -17,3 +17,14 @@
             }, false)
         })
 })(); */
+
+
+// Esconder mensagens
+function hideMessage() {
+    document.querySelector(".messages").style.display = "none";
+}
+setTimeout(hideMessage, 4000);
+
+
+
+

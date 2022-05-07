@@ -1,28 +1,42 @@
 {% extends 'layouts/user-model.html' %}
 
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block title %}Login{% endblock %}
 
 {% block content %}
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>
+        {{ message }}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
 <div class="row">
-    <div class="col-md-6 mx-auto">
+    <div class="col-md-3 mx-auto">
         <div class="card">
             <div class="card-body">
-                <div class="text-center">
-                    <h3 class="mt-5 mb-5">Login</h3>
 
-                    <form method="POST">
-                        {% csrf_token %}
+                <h3 class="mt-3 mb-5 text-center">Login</h3>
 
-                        {{ form.as_p }}
-                        <button type="submit" class="btn btn-primary btn-block">Entrar</button>
-                    </form>
+                <form action="" method="POST">
+                    {% csrf_token %}
 
-                    <p class="" style="margin-top: 30px;">Quer criar uma conta?
-                        <a href="{% url 'account_signup' %}">Clique aqui</a>
-                    </p>
-                </div>
+                    {{ form|crispy }}
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary mt-4 mb-5">Entrar</button>
+                    </div>
+                </form>
+
+                <p class="text-center">Quer criar uma conta?
+                    <a href=" {% url 'account_signup' %}">Clique aqui</a>
+                </p>
             </div>
         </div>
     </div>

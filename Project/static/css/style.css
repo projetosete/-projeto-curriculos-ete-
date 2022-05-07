@@ -1,40 +1,22 @@
-/* General */
+/*________________________________GENERAL________________________________*/
 * {
     margin: 0;
     padding: 0;
 }
 
-/*  Cores da ETE  */
-.bg-ete {
-    background-color: #000;
-}
 
-.text-ete {
-    color: white;
-}
-
-
-/*  Tamanhos diferentes para fontes */
-.font-90 {
-    font-size: 90%;
-}
-
-
-/* Personalização da Barra de menu  */
+/*________________________________NAVBAR________________________________*/
 .navbar {
     padding: 0 !important;
+    font-size: 14px;
 }
 
-.navbar a.nav-link {
-    color: #ffffff !important;
+#navbarNav {
+    margin: 0 50px 0 25px;
 }
 
 .navbar .navbar-brand {
-    margin-left: 10px;
-}
-
-.navbar .dropdown-button-user {
-    margin-right: 60px;
+    margin-left: 20px;
 }
 
 .navbar .nav-item {
@@ -42,12 +24,32 @@
 }
 
 .navbar .nav-item:hover {
-    background-color: #3030b3;
+    background-color: #3030b3 !important;
 }
 
+.navbar a.nav-link {
+    color: #ffffff !important;
+}
 
+.navbar .nav-item a.nav-link i {
+    margin-right: 3px;
+}
 
-/* Largura máxima das tabelas para não ficar mal formatada */
-table td {
-    max-width: 500px;
+/* User information button ( dropdown button ) */
+.navbar #button-dropdown a.dropdown-item {
+    font-size: 12px;
+}
+
+.navbar #button-dropdown a.dropdown-item i {
+    margin-right: 3px;
+}
+
+/*________________________________Messages________________________________*/
+ul.messages {
+    text-align: center;
+    padding: 0;
+}
+
+ul.messages li {
+    list-style: none;
 }

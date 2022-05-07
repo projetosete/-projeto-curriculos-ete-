@@ -1,0 +1,41 @@
+{% extends 'layouts/user-model.html' %}
+
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>
+        {{ message }}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        {% for resume in resumes %}
+        <div class="card">
+            <div class="card-body">
+                <h3 class="text-center mt-3 mb-4">Meu currículo</h3>
+
+                <img src="/uploads/{{ resume.image }}" alt="{{ resume.name }}" width="300px">
+
+                <h3>{{ resume.name }}</h3>
+                <p>{{ resume.birth_date|date:"d/m/Y" }}</p>
+                <p>{{ resume.phone_number }}</p>
+                <p>{{ resume.city }}</p>
+                <p>{{ resume.course }}</p>
+
+                <a href="/editar/{{ resume.id }}" class="btn btn-info">Editar</a>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
