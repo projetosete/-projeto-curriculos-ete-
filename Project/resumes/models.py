@@ -35,16 +35,17 @@ class Resume(models.Model):
         return self.name
 
 
-
+# class Knowledge(models.Model):
+#     HABILITY_CHOICES = ['Power Point', 'Excel', 'Word']
 
 
 class Experience(models.Model):
-    company = models.CharField(max_length=100, null=True)
-    office = models.CharField(max_length=100, null=True)
-    start_date = models.DateField(null=True)
-    final_date = models.DateField(null=True)
-    description = models.TextField(null=True)
-    resumes = models.ForeignKey(Resume, on_delete=models.CASCADE, null=True)
+    company = models.CharField(max_length=100, null=True, blank=True)
+    office = models.CharField(max_length=100, null=True, blank=True)
+    start_date = models.DateField(null=True, blank=True)
+    final_date = models.DateField(null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+    resumes = models.ForeignKey(Resume, on_delete=models.CASCADE, null=True, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
