@@ -14,8 +14,19 @@ class Resume(models.Model):
     phone_number = models.CharField(max_length=15)
     city = models.CharField(max_length=50)
     image = models.ImageField(upload_to=resume_image_name)
-    course = models.CharField(max_length=100)
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    
+    DES_SISTEMAS = 'Desenvolvimento de Sistemas'
+    LOGISTICA = 'Logistica'
+    COURSE_CHOICES = [
+        (DES_SISTEMAS, 'Desenvolvimento de Sistemas'),
+        (LOGISTICA, 'Logistica'),
+    ]
+    course = models.CharField(
+        max_length=30,
+        choices=COURSE_CHOICES,
+        default=LOGISTICA,
+    )
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
