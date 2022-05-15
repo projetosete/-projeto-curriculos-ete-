@@ -1,5 +1,9 @@
+from email.headerregistry import Group
+from tokenize import group
+from unicodedata import name
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import Group
 from .forms import ResumeForm
 from .models import Resume
 from django.contrib import messages
@@ -10,7 +14,10 @@ from django.contrib import messages
 @login_required
 def home(request):
 
-    resumes = Resume.objects.all().filter(user=request.user)
+    resumes = Resume.objects.filter(user=request.user)
+
+    #group_admin = get_object_or_404(Group, name="Admin")
+
 
     if(not resumes):
         return redirect("criar/")
@@ -21,7 +28,7 @@ def home(request):
 # função para criar currículo de aluno
 @login_required
 def createResume(request):
-    resumes = Resume.objects.all().filter(user=request.user)
+    resumes = Resume.objects.filter(user=request.user)
     
     if(request.method == "POST"):
         form = ResumeForm(request.POST, request.FILES)
