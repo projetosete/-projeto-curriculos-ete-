@@ -18,7 +18,7 @@
 
 
 <div class="row">
-    {% if resumes %}
+    {% if resumes or request.user.groups.all.0.name == "Admin" %}
     <div class="col-md-6 mx-auto">
         <h3 class="mt-5 mb-3">Ação não permitida</h3>
         <hr>
@@ -32,7 +32,7 @@
     <div class="col-md-6 mx-auto">
         <div class="card">
             <div class="card-body">
-                <h3 class="text-center mt-3 mb-3">Crie seu currículo</h3>
+                <h3 class="text-center mt-4 mb-3">Crie seu currículo</h3>
 
                 <form method="POST" class="needs-validation" enctype="multipart/form-data">
                     {% csrf_token %}

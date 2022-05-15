@@ -64,7 +64,7 @@
 
                         {% if request.user.groups.all.0.name == "Admin" %}
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{% url 'dashboard' %}">
                                 <i class="fa fa-question-circle" aria-hidden="true"></i>
                                 Dashboard
                             </a>
@@ -136,9 +136,7 @@
 
     <main>
         <div class="container-fluid">
-            <div class="row">
-                {% block content %} {% endblock %}
-            </div>
+            {% block content %} {% endblock %}
         </div>
     </main>
 
