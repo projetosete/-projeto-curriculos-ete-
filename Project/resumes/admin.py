@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Experience, Resume
+from .models import Experience, Resume, Knowledge
 
 # Register your models here.
 
@@ -19,4 +19,12 @@ class ExperienceAdmin(admin.ModelAdmin):
 
     # barra de pesquisa
     search_fields = ["company","office"]
+
+@admin.register(Knowledge)
+class KnowledgeAdmin(admin.ModelAdmin):
+    # colunas que irá mostrar na tabela
+    list_display = ("dominant_skills","english","spanish","basics_skills")
+
+    # barra de pesquisa
+    search_fields = ["dominant_skills","english","spanish","basics_skills"]
 
