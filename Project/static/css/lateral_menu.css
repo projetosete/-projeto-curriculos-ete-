@@ -1,0 +1,22 @@
+.box {
+    margin-top: 20px;
+}
+
+
+.box a {
+    width: 100%;
+}
+
+.btn-item {
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.btn-item:hover {
+    background-color: aqua;
+    border-right: 2px solid black;
+}
+
+.btn-item a {
+    color: black;
+}

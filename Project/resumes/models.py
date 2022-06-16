@@ -96,7 +96,7 @@ class Knowledge(models.Model):
     )
 
     basics_skills = models.TextField(null=True, blank=True)
-    resumes = models.ForeignKey(Resume, on_delete=models.CASCADE, null=True, blank=True)
+    resume_knowledge = models.OneToOneField(Resume, on_delete=models.CASCADE, null=True, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -109,7 +109,7 @@ class Experience(models.Model):
     start_date = models.DateField(null=True, blank=True)
     final_date = models.DateField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-    resumes = models.ForeignKey(Resume, on_delete=models.CASCADE, null=True, blank=True)
+    resume_experience = models.ForeignKey(Resume, on_delete=models.CASCADE, null=True, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

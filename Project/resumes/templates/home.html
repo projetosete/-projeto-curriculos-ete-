@@ -38,6 +38,8 @@
                 </div>
             </div>
         </div>
+        {% endfor %}
+        {% for knowledge in knowledges %}
         <div class="col-lg-6">
             <div class="row">
                 <div class="col-lg-12">
@@ -45,24 +47,25 @@
                         <div class="card-body">
                             <h2 class="text-center mt-3 mb-4">Habilidades:</h2>
 
-                            <p><strong>Linguagens de Programação:</strong> Python, JAVA, PHP, JavaScript.</p>
-                            <p><strong>Idiomas: </strong>Inglês(fluente), Espanhol(Intermediario), Francês(iniciante)
-                            </p>
-                            <p><strong>Competencias: </strong>PPW, Excel, Word, Photoshop</p>
+                            <p><strong>Linguagens de Programação:</strong> {{ knowledge.dominant_skills }}</p>
+                            <p><strong>Fluência em Inglês: </strong>{{ knowledge.english }}</p>
+                            <p><strong>fluência em Espanhol: </strong>{{ knowledge.spanish }}</p>
+                            <p><strong>Competencias: </strong>{{ knowledge.basics_skills }}</p>
 
                         </div>
                     </div>
                 </div>
+                {% endfor %}
+                {% for experience in experiences %}
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
                             <h2 class="text-center mt-3 mb-4">Experiências:</h2>
 
-                            <p><strong>Empresa: </strong>Banco do Brasil</p>
+                            <p><strong>Empresa: </strong>{{ experience.company }}</p>
                             <p><strong>Duração: </strong>6 meses</p>
-                            <p><strong>Cargo: </strong>Estagiário</p>
-                            <p><strong>Descrição: </strong>Auxiliar em desenvolivimento com django em python, para
-                                sistemas web</p>
+                            <p><strong>Cargo: </strong>{{ experience.office }}</p>
+                            <p><strong>Descrição: </strong>{{ experience.description }}</p>
                             <button class="btn btn-primary">Ver mais</button>
                         </div>
                     </div>
@@ -70,10 +73,11 @@
 
             </div>
         </div>
+        {% endfor %}
         <div class="button text-center">
             <a href="/editar/{{ resume.id }}" class="btn btn-primary w-50">Editar Curriculo</a>
         </div>
-        {% endfor %}
+
     </div>
 </div>
 

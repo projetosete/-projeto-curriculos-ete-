@@ -15,7 +15,7 @@ class ResumeAdmin(admin.ModelAdmin):
 @admin.register(Experience)
 class ExperienceAdmin(admin.ModelAdmin):
     # colunas que irá mostrar na tabela
-    list_display = ("company","office","start_date","final_date","description","resumes")
+    list_display = ("company","office","start_date","final_date","description","resume_experience")
 
     # barra de pesquisa
     search_fields = ["company","office"]
@@ -23,7 +23,7 @@ class ExperienceAdmin(admin.ModelAdmin):
 @admin.register(Knowledge)
 class KnowledgeAdmin(admin.ModelAdmin):
     # colunas que irá mostrar na tabela
-    list_display = ("dominant_skills","english","spanish","basics_skills")
+    list_display = ("dominant_skills","english","spanish","basics_skills","resume_knowledge")
 
     # barra de pesquisa
     search_fields = ["dominant_skills","english","spanish","basics_skills"]

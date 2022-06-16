@@ -4,8 +4,12 @@ from . import views
 urlpatterns = [
     # Student
     path("", views.home, name="home"),
-    path("criar/", views.createResume, name="create-resume"),
     path("editar/<int:id>", views.editResume, name="edit-resume"),
+
+    # create
+    path("create/", views.createResume, name="create-resume"),
+    path("knowledge/", views.createKnowledge, name="create-knowledge"),
+    path("experience/", views.createExperience, name="create-experience"),
 
     # Admin
     path("dashboard/", views.dashboard, name="dashboard"),

@@ -1,0 +1,51 @@
+{% extends 'layouts/user-model.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Crie seu currículo{% endblock %}
+
+{% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>
+        {{ message }}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+<div class="row">
+    {% if resumes or request.user.groups.all.0.name == "Admin" %}
+    <div class="col-md-6 mx-auto">
+        <h3 class="mt-5 mb-3">Ação não permitida</h3>
+        <hr>
+        <p class="lead">
+            <strong>
+                Houve algum problema para processar a ação desejada ou você não tem permissão para isso.
+            </strong>
+        </p>
+    </div>
+    {% else %}
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="text-center mt-4 mb-3">Habilidades</h3>
+
+                <form method="POST" class="needs-validation" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    {{ form|crispy }}
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-block">Salvar e continuar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
