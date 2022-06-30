@@ -25,6 +25,8 @@ urlpatterns = [
 
     # local urls
     path('', include('resumes.urls')),
+    path('', include('students.urls')),
+    path('', include('admins.urls')),
     
     # user management
     path('accounts/', include('allauth.urls')),
